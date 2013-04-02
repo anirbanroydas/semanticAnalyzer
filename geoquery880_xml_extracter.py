@@ -116,16 +116,18 @@ except e:
 	sys.exit(1)
 
 	
-i=0
-while(n[i]<251):
+i=250
+j=1
+while(n[i]<501):
 	q=geoQueryDB_list[n[i]]
 	x=q[0]
 	x=str(x)
 	z=q[1]
 	z=str(z)
-	data="\n%d\nQuery(x)    :    %s\nMR(z)       :    %s\n" % ((i+1),x,z)
+	data="\n%d\nQuery(x)    :    %s\nMR(z)       :    %s\n" % (j,x,z)
 	f.write(data)
 	i=i+1
+	j=j+1
 	
 f.close()
 
