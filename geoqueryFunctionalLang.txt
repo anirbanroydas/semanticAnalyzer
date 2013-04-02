@@ -1,0 +1,156 @@
+Geoquery: The Functional Query Language
+
+The functional query language used in the Geoquery domain is originated from the query language described in the following dissertation (Section 7.3):
+
+John M. Zelle, Using Inductive Logic Programming to Automate the Construction of Natural Language Parsers. Ph.D. Dissertation, The University of Texas at Austin, August 1995.
+
+1. The Original Query Language
+
+The original query language is basically a first-order logical form augmented with some higher-order predicates or meta-predicates, for handling issues such as quantification over implicit sets. It was not designed around any notion of appropriateness for representation of natural language in general, but rather as a direct method of compositionally translating sentences into unambiguous, logic-oriented database queries.
+
+The most basic constructs in the query language are the terms used to represent the objects referenced in the target geography database (Borland International, 1988):
+
+
+Type	                                           Form	                                              Example
+city	                   		                     cityid(CityName,StateAbbrev)	             cityid(austin,tx)
+country	                                             countryid(CountryName)	                         countryid(usa)
+place (lakes, mountains, etc.)	         placeid(PlaceName)                                       placeid('guadalupe peak')
+river	                                                         riverid(RiverName)	                                     riverid(colorado)
+state	                                                         stateid(StateName)	                                     stateid(texas)
+
+
+There are also terms that represent the basic relations between the objects:
+
+
+Form	                  Predicate
+capital(C)	            C is a capital (city).
+city(C)                 	C is a city.
+lake(P)	            P is a lake.
+major(X)	            X is major (as in a major city or a major river).
+mountain(P)	            P is a mountain.
+place(P)	            P is a place.
+river(R)	            R is a river.
+state(S)	            S is a state.
+area(S,A)	            The area of S is A.
+capital(S,C)	            The capital of S is C.
+const(V,C)                 Variable V is ground term C.
+density(S,D)	            The (population) density of S is D.
+elevation(P,E)	The elevation of P is E.
+high_point(S,P)	The highest point of S is P.
+higher(P1,P2)	The elevation of P1 is greater than that of P2.
+loc(X,Y)	            X is located in Y.
+longer(R1,R2)	The length of R1 is greater than that of R2.
+low_point(S,P)	The lowest point of S is P.
+lower(P1,P2)	            The elevation of P1 is less than that of P2.
+len(R,L)	            The length of R is L.
+next_to(S1,S2)	S1 is next to S2.
+population(X,Y)	The population of X is Y.
+size(X,Y)	            The size of X is Y.
+traverse(R,S)	R traverses S.
+
+
+Although the basic predicates provide most of the expressiveness of Geoquery, meta-predicates are required to form complete queries. These predicates are distinguished in that they take completely-formed conjunctive goals as one of their arguments, while the remaining arguments are variables:
+
+
+Form          	Explanation
+answer(V,Goal)	V is the variable of interest in Goal.
+largest(V,Goal)	Goal produces only the solution maximizing the size of V.
+smallest(V,Goal)	Analogous to largest.
+highest(V,Goal)	Analogous to largest (with elevation).
+lowest(V,Goal)	Analogous to highest.
+longest(V,Goal)	Analogous to largest (with length).
+shortest(V,Goal)	Analogous to longest.
+count(D,Goal,C)	C is the count of bindings for D satisfying Goal.
+most(X,D,Goal)	Goal produces only the X maximizing the count of D.
+fewest(X,D,Goal)	Analogous to most.
+
+
+The most important of the meta-predicates is answer/2. This predicate serves as a wrapper for query goals indicating the variable whose binding is of interest (i.e. answers the question posed). Executing a query of the form: answer(X,Goal) where X is a variable appearing in Goal results in a listing of all the unique values taken on by X for all possible proofs of Goal generated through backtracking. All queries come in this form, and many of them do not require any other meta-predicates for their expression.
+
+
+
+2. The Functional Query Language
+
+Kate et al. (2005) developed a variable-free, functional query language for the Geoquery domain. A new, variable-free language was needed because their SILT algorithm does not handle variables (neither does WASP). The functional language was designed to allow for direct translation of the functional forms into first-order logical forms, which are used to query the target database.
+
+The functional query language uses the same basic constructs as the original query language to represent objects in the target database. These constructs can be seen as a shorthand for lambda expressions that generate the underlying first-order logical forms:
+
+
+Type	                                    Form                                         Lambda Expression
+city	                                                cityid(CityName,StateAbbrev)	      λx.const(x,cityid(CityName,StateAbbrev))
+country	                                    countryid(CountryName)	                  λx.const(x,countryid(CountryName))
+place (lakes, mountains, etc.)	placeid(PlaceName)	                  λx.const(x,placeid(PlaceName))
+river	                                                riverid(RiverName)       	                  λx.const(x,riverid(RiverName))
+state	                                                stateid(StateName)	                              λx.const(x,stateid(StateName))
+
+
+There are also special constructs that represent collections of objects:
+
+
+Collection	Form	                           Lambda             Expression
+all capital cities	                                    capital(all)	            λx.capital(x)
+all cities	                                                city(all)	            λx.city(x)
+all lakes	                                                lake(all)	            λx.lake(x)
+all mountains	                                    mountain(all)	λx.mountain(x)
+all places (lakes, mountains, etc.)	place(all)	            λx.place(x)
+all rivers	                                                river(all)	            λx.river(x)
+all states	                                                state(all)	            λx.state(x)
+
+
+
+The following functional forms represent the basic relations between the objects:
+
+Form	                  Lambda Expression
+capital(p)	            λp.λx.(capital(x), p(x))
+city(p)	                        λp.λx.(city(x), p(x))
+lake(p)	            λp.λx.(lake(x), p(x))
+major(p)	            λp.λx.(major(x), p(x))
+mountain(p)	            λp.λx.(mountain(x), p(x))
+place(p)	            λp.λx.(place(x), p(x))
+river(p)	            λp.λx.(river(x), p(x))
+state(p)	            λp.λx.(state(x), p(x))
+area_1(p)	            λp.λx.(area(S,x), p(S))
+capital_1(p)	            λp.λx.(capital(S,x), p(S))
+capital_2(p)	            λp.λx.(capital(x,C), p(C))
+density_1(p)	            λp.λx.(density(S,x), p(S))
+elevation_1(p)	λp.λx.(elevation(P,x), p(P))
+elevation_2(E)	λE.λx.elevation(x,E)
+high_point_1(p)	λp.λx.(high_point(S,x), p(S))
+high_point_2(p)	λp.λx.(high_point(x,P), p(P))
+higher_2(p)	            λp.λx.(higher(x,P2), p(P2))
+loc_1(p)	            λp.λx.(loc(X,x), p(X))
+loc_2(p)	            λp.λx.(loc(x,Y), p(Y))
+longer(p)	            λp.λx.(longer(x,R2), p(R2))
+lower_2(p)	            λp.λx.(lower(x,P2), p(P2))
+len(p)	                        λp.λx.(len(R,x), p(R))
+next_to_1(p)	            λp.λx.(next_to(S1,x), p(S1))
+next_to_2(p)	            λp.λx.(next_to(x,S2), p(S2))
+population_1(p)	λp.λx.(population(X,x), p(X))
+size(p)	            λp.λx.(size(X,x), p(X))
+traverse_1(p)	λp.λx.(traverse(R,x), p(R))
+traverse_2(p)	λp.λx.(traverse(x,S), p(S))
+
+
+
+The following functional forms correspond to the meta-predicates in the original Geoquery language:
+
+Form                  			Lambda Expression
+answer(p)				λp.answer(V,p(V))
+largest(p)				λp.largest(V,p(V))
+largest_one(area_1(p))	            λp.λx.largest(A,(area(x,A),p(x)))
+largest_one(density_1(p))  	λp.λx.largest(D,(density(x,D),p(x)))
+largest_one(population_1(p))	λp.λx.largest(Y,(population(x,Y),p(x)))
+smallest(p)				Analogous to largest.
+smallest_one(...)			Analogous to largest_one(...).
+highest(p)				Analogous to largest (with the meta-predicate highest/2).
+lowest(p)				Analogous to highest.
+longest(p)				Analogous to largest (with the meta-predicate longest/2).
+shortest(p)				Analogous to longest.
+count(p)				λp.λx.count(D,p(D),x)
+most(pD)				λpD.λx.most(x,D,pD(x)) (where D is the only free variable in the lambda expression pD)
+fewest(pD)				λpD.λx.fewest(x,D,pD(x)) (where D is the only free variable in the lambda expression pD)
+
+
+A Prolog script that translates functional forms into the original first-order logical forms (and executes them on the fly) is included in this distribution. This script was written by Rohit J. Kate (rjkate@cs.utexas.edu), and is located in the data/geo-funql/eval directory.
+
+Yuk Wah Wong (ywwong@cs.utexas.edu)
