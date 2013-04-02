@@ -80,6 +80,32 @@ for i in n:
 	data="\n%d\nQuery(x)    :    %s\nMR(z)       :    %s\n" % (i,x,z)
 	f.write(data)
 
+f.close()
+
+try:
+	print "trying to open Response250(training).txt\n"
+	f=open("Response250(training).txt","wb")
+	
+except e:
+	print "unable to open file"
+	print
+	sys.exit(1)
+
+	
+i=0
+while(n[i]<251):
+	q=geoQueryDB_list[n[i]]
+	x=q[0]
+	x=str(x)
+	z=q[1]
+	z=str(z)
+	data="\n%d\nQuery(x)    :    %s\nMR(z)       :    %s\n" % ((i+1),x,z)
+	f.write(data)
+	i=i+1
+	
+f.close()
+	
+
 print "\nExiting Program\n\n"
 
 	
