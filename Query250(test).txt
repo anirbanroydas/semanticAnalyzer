@@ -1,1000 +1,750 @@
 
 1
-Query(x)    :    What are the populations of the major cities of Texas ?
-MR(z)       :    answer(population_1(major(city(loc_2(stateid('texas'))))))
+Query(x)     :     What are the populations of the major cities of Texas ?
 
 2
-Query(x)    :    What are the populations of the states through which the Mississippi river runs ?
-MR(z)       :    answer(population_1(state(traverse_1(river(riverid('mississippi'))))))
+Query(x)     :     What are the populations of the states through which the Mississippi river runs ?
 
 3
-Query(x)    :    What are the populations of the states through which the Mississippi river runs ?
-MR(z)       :    answer(population_1(state(traverse_1(river(riverid('mississippi'))))))
+Query(x)     :     What are the populations of the states through which the Mississippi river runs ?
 
 4
-Query(x)    :    What are the populations of the states through which the Mississippi runs ?
-MR(z)       :    answer(population_1(state(traverse_1(riverid('mississippi')))))
+Query(x)     :     What are the populations of the states through which the Mississippi runs ?
 
 5
-Query(x)    :    What are the populations of the states through which the Mississippi runs ?
-MR(z)       :    answer(population_1(state(traverse_1(riverid('mississippi')))))
+Query(x)     :     What are the populations of the states through which the Mississippi runs ?
 
 6
-Query(x)    :    What are the rivers in Alaska ?
-MR(z)       :    answer(river(loc_2(stateid('alaska'))))
+Query(x)     :     What are the rivers in Alaska ?
 
 7
-Query(x)    :    What are the rivers in the state of Indiana ?
-MR(z)       :    answer(river(loc_2(state(stateid('indiana')))))
+Query(x)     :     What are the rivers in the state of Indiana ?
 
 8
-Query(x)    :    What are the rivers in the state of Texas ?
-MR(z)       :    answer(river(loc_2(state(stateid('texas')))))
+Query(x)     :     What are the rivers in the state of Texas ?
 
 9
-Query(x)    :    What are the rivers of Montana ?
-MR(z)       :    answer(river(loc_2(stateid('montana'))))
+Query(x)     :     What are the rivers of Montana ?
 
 10
-Query(x)    :    What are the states ?
-MR(z)       :    answer(state(all))
+Query(x)     :     What are the states ?
 
 11
-Query(x)    :    What are the states that border the state with the greatest population ?
-MR(z)       :    answer(state(next_to_2(largest_one(population_1(state(all))))))
+Query(x)     :     What are the states that border the state with the greatest population ?
 
 12
-Query(x)    :    What are the states that the Potomac runs through ?
-MR(z)       :    answer(state(traverse_1(riverid('potomac'))))
+Query(x)     :     What are the states that the Potomac runs through ?
 
 13
-Query(x)    :    What are the states through which the longest river runs ?
-MR(z)       :    answer(state(traverse_1(longest(river(all)))))
+Query(x)     :     What are the states through which the longest river runs ?
 
 14
-Query(x)    :    What can you tell me about the population of Missouri ?
-MR(z)       :    answer(population_1(stateid('missouri')))
+Query(x)     :     What can you tell me about the population of Missouri ?
 
 15
-Query(x)    :    What capital has the largest population ?
-MR(z)       :    answer(largest_one(population_1(capital(all))))
+Query(x)     :     What capital has the largest population ?
 
 16
-Query(x)    :    What capital is the largest in the US ?
-MR(z)       :    answer(largest(capital(loc_2(countryid('usa')))))
+Query(x)     :     What capital is the largest in the US ?
 
 17
-Query(x)    :    What cities are located in Pennsylvania ?
-MR(z)       :    answer(city(loc_2(stateid('pennsylvania'))))
+Query(x)     :     What cities are located in Pennsylvania ?
 
 18
-Query(x)    :    What cities in California ?
-MR(z)       :    answer(city(loc_2(stateid('california'))))
+Query(x)     :     What cities in California ?
 
 19
-Query(x)    :    What cities in Texas have the highest number of citizens ?
-MR(z)       :    answer(largest_one(population_1(city(loc_2(stateid('texas'))))))
+Query(x)     :     What cities in Texas have the highest number of citizens ?
 
 20
-Query(x)    :    What cities in Texas have the highest populations ?
-MR(z)       :    answer(largest_one(population_1(city(loc_2(stateid('texas'))))))
+Query(x)     :     What cities in Texas have the highest populations ?
 
 21
-Query(x)    :    What city has the largest population ?
-MR(z)       :    answer(largest_one(population_1(city(all))))
+Query(x)     :     What city has the largest population ?
 
 22
-Query(x)    :    What city has the least population ?
-MR(z)       :    answer(smallest_one(population_1(city(all))))
+Query(x)     :     What city has the least population ?
 
 23
-Query(x)    :    What city has the most people ?
-MR(z)       :    answer(largest_one(population_1(city(all))))
+Query(x)     :     What city has the most people ?
 
 24
-Query(x)    :    What city in the United States has the highest population density ?
-MR(z)       :    answer(largest_one(density_1(city(loc_2(countryid('usa'))))))
+Query(x)     :     What city in the United States has the highest population density ?
 
 25
-Query(x)    :    What is capital of Iowa ?
-MR(z)       :    answer(capital(loc_2(stateid('iowa'))))
+Query(x)     :     What is capital of Iowa ?
 
 26
-Query(x)    :    What is capital of the state with the lowest point ?
-MR(z)       :    answer(capital(loc_2(state(loc_1(lowest(place(all)))))))
+Query(x)     :     What is capital of the state with the lowest point ?
 
 27
-Query(x)    :    What is largest capital ?
-MR(z)       :    answer(largest(capital(all)))
+Query(x)     :     What is largest capital ?
 
 28
-Query(x)    :    What is the adjacent state of California ?
-MR(z)       :    answer(state(next_to_2(stateid('california'))))
+Query(x)     :     What is the adjacent state of California ?
 
 29
-Query(x)    :    What is the area of Alaska ?
-MR(z)       :    answer(area_1(stateid('alaska')))
+Query(x)     :     What is the area of Alaska ?
 
 30
-Query(x)    :    What is the area of all the states combined ?
-MR(z)       :    answer(sum(area_1(state(all))))
+Query(x)     :     What is the area of all the states combined ?
 
 31
-Query(x)    :    What is the area of California ?
-MR(z)       :    answer(area_1(stateid('california')))
+Query(x)     :     What is the area of California ?
 
 32
-Query(x)    :    What is the area of Florida ?
-MR(z)       :    answer(area_1(stateid('florida')))
+Query(x)     :     What is the area of Florida ?
 
 33
-Query(x)    :    What is the area of Idaho ?
-MR(z)       :    answer(area_1(stateid('idaho')))
+Query(x)     :     What is the area of Idaho ?
 
 34
-Query(x)    :    What is the area of Maine ?
-MR(z)       :    answer(area_1(stateid('maine')))
+Query(x)     :     What is the area of Maine ?
 
 35
-Query(x)    :    What is the area of Maryland in square kilometers ?
-MR(z)       :    answer(area_1(stateid('maryland')))
+Query(x)     :     What is the area of Maryland in square kilometers ?
 
 36
-Query(x)    :    What is the area of New Mexico ?
-MR(z)       :    answer(area_1(stateid('new mexico')))
+Query(x)     :     What is the area of New Mexico ?
 
 37
-Query(x)    :    What is the area of Ohio ?
-MR(z)       :    answer(area_1(stateid('ohio')))
+Query(x)     :     What is the area of Ohio ?
 
 38
-Query(x)    :    What is the area of Seattle ?
-MR(z)       :    answer(area_1(cityid('seattle', _)))
+Query(x)     :     What is the area of Seattle ?
 
 39
-Query(x)    :    What is the area of South Carolina ?
-MR(z)       :    answer(area_1(stateid('south carolina')))
+Query(x)     :     What is the area of South Carolina ?
 
 40
-Query(x)    :    What is the area of Texas ?
-MR(z)       :    answer(area_1(stateid('texas')))
+Query(x)     :     What is the area of Texas ?
 
 41
-Query(x)    :    What is the area of the largest state ?
-MR(z)       :    answer(area_1(largest(state(all))))
+Query(x)     :     What is the area of the largest state ?
 
 42
-Query(x)    :    What is the area of the smallest state ?
-MR(z)       :    answer(area_1(smallest(state(all))))
+Query(x)     :     What is the area of the smallest state ?
 
 43
-Query(x)    :    What is the area of the state with the capital Albany ?
-MR(z)       :    answer(area_1(state(loc_1(capital(cityid('albany', _))))))
+Query(x)     :     What is the area of the state with the capital Albany ?
 
 44
-Query(x)    :    What is the area of the state with the smallest population density ?
-MR(z)       :    answer(area_1(smallest_one(density_1(state(all)))))
+Query(x)     :     What is the area of the state with the smallest population density ?
 
 45
-Query(x)    :    What is the area of the states ?
-MR(z)       :    answer(area_1(state(all)))
+Query(x)     :     What is the area of the states ?
 
 46
-Query(x)    :    What is the area of the Texas state ?
-MR(z)       :    answer(area_1(state(stateid('texas'))))
+Query(x)     :     What is the area of the Texas state ?
 
 47
-Query(x)    :    What is the area of Wisconsin ?
-MR(z)       :    answer(area_1(stateid('wisconsin')))
+Query(x)     :     What is the area of Wisconsin ?
 
 48
-Query(x)    :    What is the average population of the US by state ?
-MR(z)       :    answer(density_1(countryid('usa')))
+Query(x)     :     What is the average population of the US by state ?
 
 49
-Query(x)    :    What is the average population per square km in Pennsylvania ?
-MR(z)       :    answer(density_1(stateid('pennsylvania')))
+Query(x)     :     What is the average population per square km in Pennsylvania ?
 
 50
-Query(x)    :    What is the average population per square km in the US ?
-MR(z)       :    answer(density_1(countryid('usa')))
+Query(x)     :     What is the average population per square km in the US ?
 
 51
-Query(x)    :    What is the biggest American city in a state with a river ?
-MR(z)       :    answer(largest(city(loc_2(state(loc_1(river(all)))))))
+Query(x)     :     What is the biggest American city in a state with a river ?
 
 52
-Query(x)    :    What is the biggest capital city in the US ?
-MR(z)       :    answer(largest(capital(city(loc_2(countryid('usa'))))))
+Query(x)     :     What is the biggest capital city in the US ?
 
 53
-Query(x)    :    What is the biggest city in Arizona ?
-MR(z)       :    answer(largest(city(loc_2(stateid('arizona')))))
+Query(x)     :     What is the biggest city in Arizona ?
 
 54
-Query(x)    :    What is the biggest city in Georgia ?
-MR(z)       :    answer(largest(city(loc_2(stateid('georgia')))))
+Query(x)     :     What is the biggest city in Georgia ?
 
 55
-Query(x)    :    What is the biggest city in Kansas ?
-MR(z)       :    answer(largest(city(loc_2(stateid('kansas')))))
+Query(x)     :     What is the biggest city in Kansas ?
 
 56
-Query(x)    :    What is the biggest city in Louisiana ?
-MR(z)       :    answer(largest(city(loc_2(stateid('louisiana')))))
+Query(x)     :     What is the biggest city in Louisiana ?
 
 57
-Query(x)    :    What is the biggest city in Nebraska ?
-MR(z)       :    answer(largest(city(loc_2(stateid('nebraska')))))
+Query(x)     :     What is the biggest city in Nebraska ?
 
 58
-Query(x)    :    What is the biggest city in Oregon ?
-MR(z)       :    answer(largest(city(loc_2(stateid('oregon')))))
+Query(x)     :     What is the biggest city in Oregon ?
 
 59
-Query(x)    :    What is the biggest city in Texas ?
-MR(z)       :    answer(largest(city(loc_2(stateid('texas')))))
+Query(x)     :     What is the biggest city in Texas ?
 
 60
-Query(x)    :    What is the biggest city in the smallest state ?
-MR(z)       :    answer(largest(city(loc_2(smallest(state(all))))))
+Query(x)     :     What is the biggest city in the smallest state ?
 
 61
-Query(x)    :    What is the biggest city in the US ?
-MR(z)       :    answer(largest(city(loc_2(countryid('usa')))))
+Query(x)     :     What is the biggest city in the US ?
 
 62
-Query(x)    :    What is the biggest city in the USA ?
-MR(z)       :    answer(largest(city(loc_2(countryid('usa')))))
+Query(x)     :     What is the biggest city in the USA ?
 
 63
-Query(x)    :    What is the biggest city in USA ?
-MR(z)       :    answer(largest(city(loc_2(countryid('usa')))))
+Query(x)     :     What is the biggest city in USA ?
 
 64
-Query(x)    :    What is the biggest city in Wyoming ?
-MR(z)       :    answer(largest(city(loc_2(stateid('wyoming')))))
+Query(x)     :     What is the biggest city in Wyoming ?
 
 65
-Query(x)    :    What is the biggest river in Illinois ?
-MR(z)       :    answer(longest(river(loc_2(stateid('illinois')))))
+Query(x)     :     What is the biggest river in Illinois ?
 
 66
-Query(x)    :    What is the biggest state ?
-MR(z)       :    answer(largest(state(all)))
+Query(x)     :     What is the biggest state ?
 
 67
-Query(x)    :    What is the biggest state in continental US ?
-MR(z)       :    answer(largest(state(loc_2(countryid('usa')))))
+Query(x)     :     What is the biggest state in continental US ?
 
 68
-Query(x)    :    What is the biggest state in the USA ?
-MR(z)       :    answer(largest(state(loc_2(countryid('usa')))))
+Query(x)     :     What is the biggest state in the USA ?
 
 69
-Query(x)    :    What is the capital city of the largest state in the US ?
-MR(z)       :    answer(capital(city(loc_2(largest(state(loc_2(countryid('usa'))))))))
+Query(x)     :     What is the capital city of the largest state in the US ?
 
 70
-Query(x)    :    What is the capital of California ?
-MR(z)       :    answer(capital(loc_2(stateid('california'))))
+Query(x)     :     What is the capital of California ?
 
 71
-Query(x)    :    What is the capital of Colorado ?
-MR(z)       :    answer(capital(loc_2(stateid('colorado'))))
+Query(x)     :     What is the capital of Colorado ?
 
 72
-Query(x)    :    What is the capital of Georgia ?
-MR(z)       :    answer(capital(loc_2(stateid('georgia'))))
+Query(x)     :     What is the capital of Georgia ?
 
 73
-Query(x)    :    What is the capital of Hawaii ?
-MR(z)       :    answer(capital(loc_2(stateid('hawaii'))))
+Query(x)     :     What is the capital of Hawaii ?
 
 74
-Query(x)    :    What is the capital of Illinois ?
-MR(z)       :    answer(capital(loc_2(stateid('illinois'))))
+Query(x)     :     What is the capital of Illinois ?
 
 75
-Query(x)    :    What is the capital of Indiana ?
-MR(z)       :    answer(capital(loc_2(stateid('indiana'))))
+Query(x)     :     What is the capital of Indiana ?
 
 76
-Query(x)    :    What is the capital of Iowa ?
-MR(z)       :    answer(capital(loc_2(stateid('iowa'))))
+Query(x)     :     What is the capital of Iowa ?
 
 77
-Query(x)    :    What is the capital of Maine ?
-MR(z)       :    answer(capital(loc_2(stateid('maine'))))
+Query(x)     :     What is the capital of Maine ?
 
 78
-Query(x)    :    What is the capital of Maryland ?
-MR(z)       :    answer(capital(loc_2(stateid('maryland'))))
+Query(x)     :     What is the capital of Maryland ?
 
 79
-Query(x)    :    What is the capital of Massachusetts ?
-MR(z)       :    answer(capital(loc_2(stateid('massachusetts'))))
+Query(x)     :     What is the capital of Massachusetts ?
 
 80
-Query(x)    :    What is the capital of Michigan ?
-MR(z)       :    answer(capital(loc_2(stateid('michigan'))))
+Query(x)     :     What is the capital of Michigan ?
 
 81
-Query(x)    :    What is the capital of New Hampshire ?
-MR(z)       :    answer(capital(loc_2(stateid('new hampshire'))))
+Query(x)     :     What is the capital of New Hampshire ?
 
 82
-Query(x)    :    What is the capital of New Jersey ?
-MR(z)       :    answer(capital(loc_2(stateid('new jersey'))))
+Query(x)     :     What is the capital of New Jersey ?
 
 83
-Query(x)    :    What is the capital of New York ?
-MR(z)       :    answer(capital(loc_2(stateid('new york'))))
+Query(x)     :     What is the capital of New York ?
 
 84
-Query(x)    :    What is the capital of North Dakota ?
-MR(z)       :    answer(capital(loc_2(stateid('north dakota'))))
+Query(x)     :     What is the capital of North Dakota ?
 
 85
-Query(x)    :    What is the capital of Ohio ?
-MR(z)       :    answer(capital(loc_2(stateid('ohio'))))
+Query(x)     :     What is the capital of Ohio ?
 
 86
-Query(x)    :    What is the capital of Pennsylvania ?
-MR(z)       :    answer(capital(loc_2(stateid('pennsylvania'))))
+Query(x)     :     What is the capital of Pennsylvania ?
 
 87
-Query(x)    :    What is the capital of states that have cities named Durham ?
-MR(z)       :    answer(capital(loc_2(state(loc_1(city(cityid('durham', _)))))))
+Query(x)     :     What is the capital of states that have cities named Durham ?
 
 88
-Query(x)    :    What is the capital of Texas ?
-MR(z)       :    answer(capital(loc_2(stateid('texas'))))
+Query(x)     :     What is the capital of Texas ?
 
 89
-Query(x)    :    What is the capital of the Alabama state ?
-MR(z)       :    answer(capital(loc_2(state(stateid('alabama')))))
+Query(x)     :     What is the capital of the Alabama state ?
 
 90
-Query(x)    :    What is the capital of the Florida state ?
-MR(z)       :    answer(capital(loc_2(state(stateid('florida')))))
+Query(x)     :     What is the capital of the Florida state ?
 
 91
-Query(x)    :    What is the capital of the largest state ?
-MR(z)       :    answer(capital(loc_2(largest(state(all)))))
+Query(x)     :     What is the capital of the largest state ?
 
 92
-Query(x)    :    What is the capital of the smallest state ?
-MR(z)       :    answer(capital(loc_2(smallest(state(all)))))
+Query(x)     :     What is the capital of the smallest state ?
 
 93
-Query(x)    :    What is the capital of the state Texas ?
-MR(z)       :    answer(capital(loc_2(state(stateid('texas')))))
+Query(x)     :     What is the capital of the state Texas ?
 
 94
-Query(x)    :    What is the capital of the state that borders the most states ?
-MR(z)       :    answer(capital(loc_2(most(state(next_to_2(state(all)))))))
+Query(x)     :     What is the capital of the state that borders the most states ?
 
 95
-Query(x)    :    What is the capital of the state that borders the state that borders Texas ?
-MR(z)       :    answer(capital(loc_2(state(next_to_2(state(next_to_2(stateid('texas'))))))))
+Query(x)     :     What is the capital of the state that borders the state that borders Texas ?
 
 96
-Query(x)    :    What is the capital of the state with the highest elevation ?
-MR(z)       :    answer(capital(loc_2(state(loc_1(highest(place(all)))))))
+Query(x)     :     What is the capital of the state with the highest elevation ?
 
 97
-Query(x)    :    What is the capital of the state with the highest point ?
-MR(z)       :    answer(capital(loc_2(state(loc_1(highest(place(all)))))))
+Query(x)     :     What is the capital of the state with the highest point ?
 
 98
-Query(x)    :    What is the capital of the state with the largest population ?
-MR(z)       :    answer(capital(loc_2(largest_one(population_1(state(all))))))
+Query(x)     :     What is the capital of the state with the largest population ?
 
 99
-Query(x)    :    What is the capital of the state with the largest population density ?
-MR(z)       :    answer(capital(loc_2(largest_one(density_1(state(all))))))
+Query(x)     :     What is the capital of the state with the largest population density ?
 
 100
-Query(x)    :    What is the capital of the state with the longest river ?
-MR(z)       :    answer(capital(loc_2(state(loc_1(longest(river(all)))))))
+Query(x)     :     What is the capital of the state with the longest river ?
 
 101
-Query(x)    :    What is the capital of the state with the most inhabitants ?
-MR(z)       :    answer(capital(loc_2(largest_one(population_1(state(all))))))
+Query(x)     :     What is the capital of the state with the most inhabitants ?
 
 102
-Query(x)    :    What is the capital of Utah ?
-MR(z)       :    answer(capital(loc_2(stateid('utah'))))
+Query(x)     :     What is the capital of Utah ?
 
 103
-Query(x)    :    What is the capital of Vermont ?
-MR(z)       :    answer(capital(loc_2(stateid('vermont'))))
+Query(x)     :     What is the capital of Vermont ?
 
 104
-Query(x)    :    What is the capital of Washington ?
-MR(z)       :    answer(capital(loc_2(stateid('washington'))))
+Query(x)     :     What is the capital of Washington ?
 
 105
-Query(x)    :    What is the city in Texas with the largest population ?
-MR(z)       :    answer(largest_one(population_1(city(loc_2(stateid('texas'))))))
+Query(x)     :     What is the city in Texas with the largest population ?
 
 106
-Query(x)    :    What is the city with the smallest population ?
-MR(z)       :    answer(smallest_one(population_1(city(all))))
+Query(x)     :     What is the city with the smallest population ?
 
 107
-Query(x)    :    What is the combined area of all 50 states ?
-MR(z)       :    answer(sum(area_1(state(all))))
+Query(x)     :     What is the combined area of all 50 states ?
 
 108
-Query(x)    :    What is the combined population of all 50 states ?
-MR(z)       :    answer(sum(population_1(state(all))))
+Query(x)     :     What is the combined population of all 50 states ?
 
 109
-Query(x)    :    What is the density of Texas ?
-MR(z)       :    answer(density_1(stateid('texas')))
+Query(x)     :     What is the density of Texas ?
 
 110
-Query(x)    :    What is the density of the New York ?
-MR(z)       :    answer(density_1(stateid('new york')))
+Query(x)     :     What is the density of the New York ?
 
 111
-Query(x)    :    What is the elevation of Death Valley ?
-MR(z)       :    answer(elevation_1(placeid('death valley')))
+Query(x)     :     What is the elevation of Death Valley ?
 
 112
-Query(x)    :    What is the elevation of the highest point in the USA ?
-MR(z)       :    answer(elevation_1(highest(place(loc_2(countryid('usa'))))))
+Query(x)     :     What is the elevation of the highest point in the USA ?
 
 113
-Query(x)    :    What is the height of Mount McKinley ?
-MR(z)       :    answer(elevation_1(placeid('mount mckinley')))
+Query(x)     :     What is the height of Mount McKinley ?
 
 114
-Query(x)    :    What is the height of the highest mountain in Texas ?
-MR(z)       :    answer(elevation_1(highest(mountain(loc_2(stateid('texas'))))))
+Query(x)     :     What is the height of the highest mountain in Texas ?
 
 115
-Query(x)    :    What is the height of the highest point in the USA ?
-MR(z)       :    answer(elevation_1(highest(place(loc_2(countryid('usa'))))))
+Query(x)     :     What is the height of the highest point in the USA ?
 
 116
-Query(x)    :    What is the high point of Wyoming ?
-MR(z)       :    answer(high_point_1(stateid('wyoming')))
+Query(x)     :     What is the high point of Wyoming ?
 
 117
-Query(x)    :    What is the highest elevation in New Mexico ?
-MR(z)       :    answer(highest(place(loc_2(stateid('new mexico')))))
+Query(x)     :     What is the highest elevation in New Mexico ?
 
 118
-Query(x)    :    What is the highest elevation in South Carolina ?
-MR(z)       :    answer(highest(place(loc_2(stateid('south carolina')))))
+Query(x)     :     What is the highest elevation in South Carolina ?
 
 119
-Query(x)    :    What is the highest elevation in Texas ?
-MR(z)       :    answer(highest(place(loc_2(stateid('texas')))))
+Query(x)     :     What is the highest elevation in Texas ?
 
 120
-Query(x)    :    What is the highest elevation in the United States ?
-MR(z)       :    answer(highest(place(loc_2(countryid('usa')))))
+Query(x)     :     What is the highest elevation in the United States ?
 
 121
-Query(x)    :    What is the highest mountain in Alaska ?
-MR(z)       :    answer(highest(mountain(loc_2(stateid('alaska')))))
+Query(x)     :     What is the highest mountain in Alaska ?
 
 122
-Query(x)    :    What is the highest mountain in Texas ?
-MR(z)       :    answer(highest(mountain(loc_2(stateid('texas')))))
+Query(x)     :     What is the highest mountain in Texas ?
 
 123
-Query(x)    :    What is the highest mountain in the US ?
-MR(z)       :    answer(highest(mountain(loc_2(countryid('usa')))))
+Query(x)     :     What is the highest mountain in the US ?
 
 124
-Query(x)    :    What is the highest mountain in US ?
-MR(z)       :    answer(highest(mountain(loc_2(countryid('usa')))))
+Query(x)     :     What is the highest mountain in US ?
 
 125
-Query(x)    :    What is the highest point in Colorado ?
-MR(z)       :    answer(highest(place(loc_2(stateid('colorado')))))
+Query(x)     :     What is the highest point in Colorado ?
 
 126
-Query(x)    :    What is the highest point in Delaware ?
-MR(z)       :    answer(highest(place(loc_2(stateid('delaware')))))
+Query(x)     :     What is the highest point in Delaware ?
 
 127
-Query(x)    :    What is the highest point in each state whose lowest point is sea level ?
-MR(z)       :    answer(highest(place(loc_2(state(loc_1(place(elevation_2(0))))))))
+Query(x)     :     What is the highest point in each state whose lowest point is sea level ?
 
 128
-Query(x)    :    What is the highest point in Florida ?
-MR(z)       :    answer(highest(place(loc_2(stateid('florida')))))
+Query(x)     :     What is the highest point in Florida ?
 
 129
-Query(x)    :    What is the highest point in Iowa ?
-MR(z)       :    answer(highest(place(loc_2(stateid('iowa')))))
+Query(x)     :     What is the highest point in Iowa ?
 
 130
-Query(x)    :    What is the highest point in Kansas ?
-MR(z)       :    answer(highest(place(loc_2(stateid('kansas')))))
+Query(x)     :     What is the highest point in Kansas ?
 
 131
-Query(x)    :    What is the highest point in Maine ?
-MR(z)       :    answer(highest(place(loc_2(stateid('maine')))))
+Query(x)     :     What is the highest point in Maine ?
 
 132
-Query(x)    :    What is the highest point in Montana ?
-MR(z)       :    answer(highest(place(loc_2(stateid('montana')))))
+Query(x)     :     What is the highest point in Montana ?
 
 133
-Query(x)    :    What is the highest point in Nevada in meters ?
-MR(z)       :    answer(highest(place(loc_2(stateid('nevada')))))
+Query(x)     :     What is the highest point in Nevada in meters ?
 
 134
-Query(x)    :    What is the highest point in New Mexico ?
-MR(z)       :    answer(highest(place(loc_2(stateid('new mexico')))))
+Query(x)     :     What is the highest point in New Mexico ?
 
 135
-Query(x)    :    What is the highest point in Ohio ?
-MR(z)       :    answer(highest(place(loc_2(stateid('ohio')))))
+Query(x)     :     What is the highest point in Ohio ?
 
 136
-Query(x)    :    What is the highest point in Rhode Island ?
-MR(z)       :    answer(highest(place(loc_2(stateid('rhode island')))))
+Query(x)     :     What is the highest point in Rhode Island ?
 
 137
-Query(x)    :    What is the highest point in states bordering Georgia ?
-MR(z)       :    answer(highest(place(loc_2(state(next_to_2(stateid('georgia')))))))
+Query(x)     :     What is the highest point in states bordering Georgia ?
 
 138
-Query(x)    :    What is the highest point in Texas ?
-MR(z)       :    answer(highest(place(loc_2(stateid('texas')))))
+Query(x)     :     What is the highest point in Texas ?
 
 139
-Query(x)    :    What is the highest point in the country ?
-MR(z)       :    answer(highest(place(loc_2(countryid('usa')))))
+Query(x)     :     What is the highest point in the country ?
 
 140
-Query(x)    :    What is the highest point in the smallest state ?
-MR(z)       :    answer(highest(place(loc_2(smallest(state(all))))))
+Query(x)     :     What is the highest point in the smallest state ?
 
 141
-Query(x)    :    What is the highest point in the state with capital Austin ?
-MR(z)       :    answer(highest(place(loc_2(state(loc_1(capital(cityid('austin', _))))))))
+Query(x)     :     What is the highest point in the state with capital Austin ?
 
 142
-Query(x)    :    What is the highest point in the state with capital Des Moines ?
-MR(z)       :    answer(highest(place(loc_2(state(loc_1(capital(cityid('des moines', _))))))))
+Query(x)     :     What is the highest point in the state with capital Des Moines ?
 
 143
-Query(x)    :    What is the highest point in the state with the capital Des Moines ?
-MR(z)       :    answer(highest(place(loc_2(state(loc_1(capital(cityid('des moines', _))))))))
+Query(x)     :     What is the highest point in the state with the capital Des Moines ?
 
 144
-Query(x)    :    What is the highest point in the state with the most rivers ?
-MR(z)       :    answer(highest(place(loc_2(most(state(traverse_1(river(all))))))))
+Query(x)     :     What is the highest point in the state with the most rivers ?
 
 145
-Query(x)    :    What is the highest point in the state with the smallest population ?
-MR(z)       :    answer(highest(place(loc_2(smallest_one(population_1(state(all)))))))
+Query(x)     :     What is the highest point in the state with the smallest population ?
 
 146
-Query(x)    :    What is the highest point in the states bordering Colorado ?
-MR(z)       :    answer(highest(place(loc_2(state(next_to_2(stateid('colorado')))))))
+Query(x)     :     What is the highest point in the states bordering Colorado ?
 
 147
-Query(x)    :    What is the highest point in the United States ?
-MR(z)       :    answer(highest(place(loc_2(countryid('usa')))))
+Query(x)     :     What is the highest point in the United States ?
 
 148
-Query(x)    :    What is the highest point in the US ?
-MR(z)       :    answer(highest(place(loc_2(countryid('usa')))))
+Query(x)     :     What is the highest point in the US ?
 
 149
-Query(x)    :    What is the highest point in the USA ?
-MR(z)       :    answer(highest(place(loc_2(countryid('usa')))))
+Query(x)     :     What is the highest point in the USA ?
 
 150
-Query(x)    :    What is the highest point in Virginia ?
-MR(z)       :    answer(highest(place(loc_2(stateid('virginia')))))
+Query(x)     :     What is the highest point in Virginia ?
 
 151
-Query(x)    :    What is the highest point in Wyoming ?
-MR(z)       :    answer(highest(place(loc_2(stateid('wyoming')))))
+Query(x)     :     What is the highest point in Wyoming ?
 
 152
-Query(x)    :    What is the highest point of the state with the largest area ?
-MR(z)       :    answer(highest(place(loc_2(largest_one(area_1(state(all)))))))
+Query(x)     :     What is the highest point of the state with the largest area ?
 
 153
-Query(x)    :    What is the highest point of the state with the smallest population density ?
-MR(z)       :    answer(highest(place(loc_2(smallest_one(density_1(state(all)))))))
+Query(x)     :     What is the highest point of the state with the smallest population density ?
 
 154
-Query(x)    :    What is the highest point of the USA ?
-MR(z)       :    answer(highest(place(loc_2(countryid('usa')))))
+Query(x)     :     What is the highest point of the USA ?
 
 155
-Query(x)    :    What is the largest capital ?
-MR(z)       :    answer(largest(capital(all)))
+Query(x)     :     What is the largest capital ?
 
 156
-Query(x)    :    What is the largest capital city in the USA ?
-MR(z)       :    answer(largest(capital(city(loc_2(countryid('usa'))))))
+Query(x)     :     What is the largest capital city in the USA ?
 
 157
-Query(x)    :    What is the largest city in a state that borders Texas ?
-MR(z)       :    answer(largest(city(loc_2(state(next_to_2(stateid('texas')))))))
+Query(x)     :     What is the largest city in a state that borders Texas ?
 
 158
-Query(x)    :    What is the largest city in Alabama ?
-MR(z)       :    answer(largest(city(loc_2(stateid('alabama')))))
+Query(x)     :     What is the largest city in Alabama ?
 
 159
-Query(x)    :    What is the largest city in California ?
-MR(z)       :    answer(largest(city(loc_2(stateid('california')))))
+Query(x)     :     What is the largest city in California ?
 
 160
-Query(x)    :    What is the largest city in Michigan ?
-MR(z)       :    answer(largest(city(loc_2(stateid('michigan')))))
+Query(x)     :     What is the largest city in Michigan ?
 
 161
-Query(x)    :    What is the largest city in Minnesota by population ?
-MR(z)       :    answer(largest_one(population_1(city(loc_2(stateid('minnesota'))))))
+Query(x)     :     What is the largest city in Minnesota by population ?
 
 162
-Query(x)    :    What is the largest city in Missouri ?
-MR(z)       :    answer(largest(city(loc_2(stateid('missouri')))))
+Query(x)     :     What is the largest city in Missouri ?
 
 163
-Query(x)    :    What is the largest city in Rhode Island ?
-MR(z)       :    answer(largest(city(loc_2(stateid('rhode island')))))
+Query(x)     :     What is the largest city in Rhode Island ?
 
 164
-Query(x)    :    What is the largest city in smallest state through which the Mississippi runs ?
-MR(z)       :    answer(largest(city(loc_2(smallest(state(traverse_1(riverid('mississippi'))))))))
+Query(x)     :     What is the largest city in smallest state through which the Mississippi runs ?
 
 165
-Query(x)    :    What is the largest city in states that border California ?
-MR(z)       :    answer(largest(city(loc_2(state(next_to_2(stateid('california')))))))
+Query(x)     :     What is the largest city in states that border California ?
 
 166
-Query(x)    :    What is the largest city in Texas ?
-MR(z)       :    answer(largest(city(loc_2(stateid('texas')))))
+Query(x)     :     What is the largest city in Texas ?
 
 167
-Query(x)    :    What is the largest city in the smallest state in the USA ?
-MR(z)       :    answer(largest(city(loc_2(smallest(state(loc_2(countryid('usa'))))))))
+Query(x)     :     What is the largest city in the smallest state in the USA ?
 
 168
-Query(x)    :    What is the largest city in Wisconsin ?
-MR(z)       :    answer(largest(city(loc_2(stateid('wisconsin')))))
+Query(x)     :     What is the largest city in Wisconsin ?
 
 169
-Query(x)    :    What is the largest city of Kansas ?
-MR(z)       :    answer(largest(city(loc_2(stateid('kansas')))))
+Query(x)     :     What is the largest city of Kansas ?
 
 170
-Query(x)    :    What is the largest of the states that the Rio Grande runs through ?
-MR(z)       :    answer(largest(state(traverse_1(riverid('rio grande')))))
+Query(x)     :     What is the largest of the states that the Rio Grande runs through ?
 
 171
-Query(x)    :    What is the largest river in Washington state ?
-MR(z)       :    answer(longest(river(loc_2(state(stateid('washington'))))))
+Query(x)     :     What is the largest river in Washington state ?
 
 172
-Query(x)    :    What is the largest state ?
-MR(z)       :    answer(largest(state(all)))
+Query(x)     :     What is the largest state ?
 
 173
-Query(x)    :    What is the largest state bordering Arkansas ?
-MR(z)       :    answer(largest(state(next_to_2(stateid('arkansas')))))
+Query(x)     :     What is the largest state bordering Arkansas ?
 
 174
-Query(x)    :    What is the largest state bordering Texas ?
-MR(z)       :    answer(largest(state(next_to_2(stateid('texas')))))
+Query(x)     :     What is the largest state bordering Texas ?
 
 175
-Query(x)    :    What is the largest state capital in population ?
-MR(z)       :    answer(largest_one(population_1(capital_1(state(all)))))
+Query(x)     :     What is the largest state capital in population ?
 
 176
-Query(x)    :    What is the largest state in the US ?
-MR(z)       :    answer(largest(state(loc_2(countryid('usa')))))
+Query(x)     :     What is the largest state in the US ?
 
 177
-Query(x)    :    What is the largest state in USA ?
-MR(z)       :    answer(largest(state(loc_2(countryid('usa')))))
+Query(x)     :     What is the largest state in USA ?
 
 178
-Query(x)    :    What is the largest state that borders California ?
-MR(z)       :    answer(largest(state(next_to_2(stateid('california')))))
+Query(x)     :     What is the largest state that borders California ?
 
 179
-Query(x)    :    What is the largest state that borders Texas ?
-MR(z)       :    answer(largest(state(next_to_2(stateid('texas')))))
+Query(x)     :     What is the largest state that borders Texas ?
 
 180
-Query(x)    :    What is the largest state that borders the state with the highest population ?
-MR(z)       :    answer(largest(state(next_to_2(largest_one(population_1(state(all)))))))
+Query(x)     :     What is the largest state that borders the state with the highest population ?
 
 181
-Query(x)    :    What is the largest state that borders the state with the lowest point in the USA ?
-MR(z)       :    answer(largest(state(next_to_2(state(loc_1(lowest(place(loc_2(countryid('usa'))))))))))
+Query(x)     :     What is the largest state that borders the state with the lowest point in the USA ?
 
 182
-Query(x)    :    What is the largest state traversed by the Mississippi river ?
-MR(z)       :    answer(largest(state(traverse_1(river(riverid('mississippi'))))))
+Query(x)     :     What is the largest state traversed by the Mississippi river ?
 
 183
-Query(x)    :    What is the least populous state ?
-MR(z)       :    answer(smallest_one(population_1(state(all))))
+Query(x)     :     What is the least populous state ?
 
 184
-Query(x)    :    What is the length of the Colorado river ?
-MR(z)       :    answer(len(river(riverid('colorado'))))
+Query(x)     :     What is the length of the Colorado river ?
 
 185
-Query(x)    :    What is the length of the Colorado river in Texas ?
-MR(z)       :    answer(len(intersection(riverid('colorado'), river(loc_2(stateid('texas'))))))
+Query(x)     :     What is the length of the Colorado river in Texas ?
 
 186
-Query(x)    :    What is the length of the longest river in the USA ?
-MR(z)       :    answer(len(longest(river(loc_2(countryid('usa'))))))
+Query(x)     :     What is the length of the longest river in the USA ?
 
 187
-Query(x)    :    What is the length of the longest river that runs through Texas ?
-MR(z)       :    answer(len(longest(river(traverse_2(stateid('texas'))))))
+Query(x)     :     What is the length of the longest river that runs through Texas ?
 
 188
-Query(x)    :    What is the length of the Mississippi river ?
-MR(z)       :    answer(len(river(riverid('mississippi'))))
+Query(x)     :     What is the length of the Mississippi river ?
 
 189
-Query(x)    :    What is the length of the river that flows through the most states ?
-MR(z)       :    answer(len(most(river(traverse_2(state(all))))))
+Query(x)     :     What is the length of the river that flows through the most states ?
 
 190
-Query(x)    :    What is the length of the river that runs through the most number of states ?
-MR(z)       :    answer(len(most(river(traverse_2(state(all))))))
+Query(x)     :     What is the length of the river that runs through the most number of states ?
 
 191
-Query(x)    :    What is the length of the river that runs through the most states ?
-MR(z)       :    answer(len(most(river(traverse_2(state(all))))))
+Query(x)     :     What is the length of the river that runs through the most states ?
 
 192
-Query(x)    :    What is the length of the river that traverses the most states ?
-MR(z)       :    answer(len(most(river(traverse_2(state(all))))))
+Query(x)     :     What is the length of the river that traverses the most states ?
 
 193
-Query(x)    :    What is the longest river ?
-MR(z)       :    answer(longest(river(all)))
+Query(x)     :     What is the longest river ?
 
 194
-Query(x)    :    What is the longest river flowing through New York ?
-MR(z)       :    answer(longest(river(traverse_2(stateid('new york')))))
+Query(x)     :     What is the longest river flowing through New York ?
 
 195
-Query(x)    :    What is the longest river in America ?
-MR(z)       :    answer(longest(river(loc_2(countryid('usa')))))
+Query(x)     :     What is the longest river in America ?
 
 196
-Query(x)    :    What is the longest river in California ?
-MR(z)       :    answer(longest(river(loc_2(stateid('california')))))
+Query(x)     :     What is the longest river in California ?
 
 197
-Query(x)    :    What is the longest river in Florida ?
-MR(z)       :    answer(longest(river(loc_2(stateid('florida')))))
+Query(x)     :     What is the longest river in Florida ?
 
 198
-Query(x)    :    What is the longest river in Mississippi ?
-MR(z)       :    answer(longest(river(loc_2(stateid('mississippi')))))
+Query(x)     :     What is the longest river in Mississippi ?
 
 199
-Query(x)    :    What is the longest river in New York ?
-MR(z)       :    answer(longest(river(loc_2(stateid('new york')))))
+Query(x)     :     What is the longest river in New York ?
 
 200
-Query(x)    :    What is the longest river in Pennsylvania ?
-MR(z)       :    answer(longest(river(loc_2(stateid('pennsylvania')))))
+Query(x)     :     What is the longest river in Pennsylvania ?
 
 201
-Query(x)    :    What is the longest river in Texas ?
-MR(z)       :    answer(longest(river(loc_2(stateid('texas')))))
+Query(x)     :     What is the longest river in Texas ?
 
 202
-Query(x)    :    What is the longest river in the largest state ?
-MR(z)       :    answer(longest(river(loc_2(largest(state(all))))))
+Query(x)     :     What is the longest river in the largest state ?
 
 203
-Query(x)    :    What is the longest river in the smallest state in the USA ?
-MR(z)       :    answer(longest(river(loc_2(smallest(state(loc_2(countryid('usa'))))))))
+Query(x)     :     What is the longest river in the smallest state in the USA ?
 
 204
-Query(x)    :    What is the longest river in the state with the highest point ?
-MR(z)       :    answer(longest(river(loc_2(state(loc_1(highest(place(all))))))))
+Query(x)     :     What is the longest river in the state with the highest point ?
 
 205
-Query(x)    :    What is the longest river in the state with the most major cities ?
-MR(z)       :    answer(longest(river(loc_2(most(state(loc_1(major(city(all)))))))))
+Query(x)     :     What is the longest river in the state with the most major cities ?
 
 206
-Query(x)    :    What is the longest river in the states that border Nebraska ?
-MR(z)       :    answer(longest(river(loc_2(state(next_to_2(stateid('nebraska')))))))
+Query(x)     :     What is the longest river in the states that border Nebraska ?
 
 207
-Query(x)    :    What is the longest river in the United States ?
-MR(z)       :    answer(longest(river(loc_2(countryid('usa')))))
+Query(x)     :     What is the longest river in the United States ?
 
 208
-Query(x)    :    What is the longest river in the US ?
-MR(z)       :    answer(longest(river(loc_2(countryid('usa')))))
+Query(x)     :     What is the longest river in the US ?
 
 209
-Query(x)    :    What is the longest river that does not run through Texas ?
-MR(z)       :    answer(longest(exclude(river(all), traverse_2(stateid('texas')))))
+Query(x)     :     What is the longest river that does not run through Texas ?
 
 210
-Query(x)    :    What is the longest river that flows through a state that borders Indiana ?
-MR(z)       :    answer(longest(river(traverse_2(state(next_to_2(stateid('indiana')))))))
+Query(x)     :     What is the longest river that flows through a state that borders Indiana ?
 
 211
-Query(x)    :    What is the longest river that flows through Colorado ?
-MR(z)       :    answer(longest(river(traverse_2(stateid('colorado')))))
+Query(x)     :     What is the longest river that flows through Colorado ?
 
 212
-Query(x)    :    What is the longest river that passes the states that border the state that borders the most states ?
-MR(z)       :    answer(longest(river(traverse_2(state(next_to_2(most(state(next_to_2(state(all))))))))))
+Query(x)     :     What is the longest river that passes the states that border the state that borders the most states ?
 
 213
-Query(x)    :    What is the longest river that runs through a state that borders Tennessee ?
-MR(z)       :    answer(longest(river(traverse_2(state(next_to_2(stateid('tennessee')))))))
+Query(x)     :     What is the longest river that runs through a state that borders Tennessee ?
 
 214
-Query(x)    :    What is the lowest elevation in Pennsylvania ?
-MR(z)       :    answer(lowest(place(loc_2(stateid('pennsylvania')))))
+Query(x)     :     What is the lowest elevation in Pennsylvania ?
 
 215
-Query(x)    :    What is the lowest point in Arkansas ?
-MR(z)       :    answer(lowest(place(loc_2(stateid('arkansas')))))
+Query(x)     :     What is the lowest point in Arkansas ?
 
 216
-Query(x)    :    What is the lowest point in California ?
-MR(z)       :    answer(lowest(place(loc_2(stateid('california')))))
+Query(x)     :     What is the lowest point in California ?
 
 217
-Query(x)    :    What is the lowest point in Louisiana ?
-MR(z)       :    answer(lowest(place(loc_2(stateid('louisiana')))))
+Query(x)     :     What is the lowest point in Louisiana ?
 
 218
-Query(x)    :    What is the lowest point in Massachusetts ?
-MR(z)       :    answer(lowest(place(loc_2(stateid('massachusetts')))))
+Query(x)     :     What is the lowest point in Massachusetts ?
 
 219
-Query(x)    :    What is the lowest point in Mississippi ?
-MR(z)       :    answer(lowest(place(loc_2(stateid('mississippi')))))
+Query(x)     :     What is the lowest point in Mississippi ?
 
 220
-Query(x)    :    What is the lowest point in Nebraska in meters ?
-MR(z)       :    answer(lowest(place(loc_2(stateid('nebraska')))))
+Query(x)     :     What is the lowest point in Nebraska in meters ?
 
 221
-Query(x)    :    What is the lowest point in Oregon ?
-MR(z)       :    answer(lowest(place(loc_2(stateid('oregon')))))
+Query(x)     :     What is the lowest point in Oregon ?
 
 222
-Query(x)    :    What is the lowest point in Texas ?
-MR(z)       :    answer(lowest(place(loc_2(stateid('texas')))))
+Query(x)     :     What is the lowest point in Texas ?
 
 223
-Query(x)    :    What is the lowest point in the state of California ?
-MR(z)       :    answer(lowest(place(loc_2(state(stateid('california'))))))
+Query(x)     :     What is the lowest point in the state of California ?
 
 224
-Query(x)    :    What is the lowest point in the state of Texas ?
-MR(z)       :    answer(lowest(place(loc_2(state(stateid('texas'))))))
+Query(x)     :     What is the lowest point in the state of Texas ?
 
 225
-Query(x)    :    What is the lowest point in the United States ?
-MR(z)       :    answer(lowest(place(loc_2(countryid('usa')))))
+Query(x)     :     What is the lowest point in the United States ?
 
 226
-Query(x)    :    What is the lowest point in USA ?
-MR(z)       :    answer(lowest(place(loc_2(countryid('usa')))))
+Query(x)     :     What is the lowest point in USA ?
 
 227
-Query(x)    :    What is the lowest point in Wisconsin ?
-MR(z)       :    answer(lowest(place(loc_2(stateid('wisconsin')))))
+Query(x)     :     What is the lowest point in Wisconsin ?
 
 228
-Query(x)    :    What is the lowest point of all states through which the Colorado river runs through ?
-MR(z)       :    answer(lowest(place(loc_2(state(traverse_1(river(riverid('colorado'))))))))
+Query(x)     :     What is the lowest point of all states through which the Colorado river runs through ?
 
 229
-Query(x)    :    What is the lowest point of Colorado ?
-MR(z)       :    answer(lowest(place(loc_2(stateid('colorado')))))
+Query(x)     :     What is the lowest point of Colorado ?
 
 230
-Query(x)    :    What is the lowest point of the state with the largest area ?
-MR(z)       :    answer(lowest(place(loc_2(largest_one(area_1(state(all)))))))
+Query(x)     :     What is the lowest point of the state with the largest area ?
 
 231
-Query(x)    :    What is the lowest point of the US ?
-MR(z)       :    answer(lowest(place(loc_2(countryid('usa')))))
+Query(x)     :     What is the lowest point of the US ?
 
 232
-Query(x)    :    What is the major cities in Montana ?
-MR(z)       :    answer(major(city(loc_2(stateid('montana')))))
+Query(x)     :     What is the major cities in Montana ?
 
 233
-Query(x)    :    What is the maximum elevation of San Francisco ?
-MR(z)       :    answer(highest(place(loc_2(cityid('san francisco', _)))))
+Query(x)     :     What is the maximum elevation of San Francisco ?
 
 234
-Query(x)    :    What is the most dense state in the USA ?
-MR(z)       :    answer(largest_one(density_1(state(loc_2(countryid('usa'))))))
+Query(x)     :     What is the most dense state in the USA ?
 
 235
-Query(x)    :    What is the most populated capital in the USA ?
-MR(z)       :    answer(largest_one(population_1(capital(loc_2(countryid('usa'))))))
+Query(x)     :     What is the most populated capital in the USA ?
 
 236
-Query(x)    :    What is the most populated state bordering Oklahoma ?
-MR(z)       :    answer(largest_one(population_1(state(next_to_2(stateid('oklahoma'))))))
+Query(x)     :     What is the most populated state bordering Oklahoma ?
 
 237
-Query(x)    :    What is the most populous city ?
-MR(z)       :    answer(largest_one(population_1(city(all))))
+Query(x)     :     What is the most populous city ?
 
 238
-Query(x)    :    What is the most populous city in Texas ?
-MR(z)       :    answer(largest_one(population_1(city(loc_2(stateid('texas'))))))
+Query(x)     :     What is the most populous city in Texas ?
 
 239
-Query(x)    :    What is the most populous city in Wyoming ?
-MR(z)       :    answer(largest_one(population_1(city(loc_2(stateid('wyoming'))))))
+Query(x)     :     What is the most populous city in Wyoming ?
 
 240
-Query(x)    :    What is the most populous state ?
-MR(z)       :    answer(largest_one(population_1(state(all))))
+Query(x)     :     What is the most populous state ?
 
 241
-Query(x)    :    What is the most populous state in the US ?
-MR(z)       :    answer(largest_one(population_1(state(loc_2(countryid('usa'))))))
+Query(x)     :     What is the most populous state in the US ?
 
 242
-Query(x)    :    What is the most populous state through which the Mississippi runs ?
-MR(z)       :    answer(largest_one(population_1(state(traverse_1(riverid('mississippi'))))))
+Query(x)     :     What is the most populous state through which the Mississippi runs ?
 
 243
-Query(x)    :    What is the name of the state with the lowest point ?
-MR(z)       :    answer(state(loc_1(lowest(place(all)))))
+Query(x)     :     What is the name of the state with the lowest point ?
 
 244
-Query(x)    :    What is the number of neighboring states for Kentucky ?
-MR(z)       :    answer(count(state(next_to_2(stateid('kentucky')))))
+Query(x)     :     What is the number of neighboring states for Kentucky ?
 
 245
-Query(x)    :    What is the population density in the state with capital Austin ?
-MR(z)       :    answer(density_1(state(loc_1(capital(cityid('austin', _))))))
+Query(x)     :     What is the population density in the state with capital Austin ?
 
 246
-Query(x)    :    What is the population density of Maine ?
-MR(z)       :    answer(density_1(stateid('maine')))
+Query(x)     :     What is the population density of Maine ?
 
 247
-Query(x)    :    What is the population density of South Dakota ?
-MR(z)       :    answer(density_1(stateid('south dakota')))
+Query(x)     :     What is the population density of South Dakota ?
 
 248
-Query(x)    :    What is the population density of Texas ?
-MR(z)       :    answer(density_1(stateid('texas')))
+Query(x)     :     What is the population density of Texas ?
 
 249
-Query(x)    :    What is the population density of the largest state ?
-MR(z)       :    answer(density_1(largest(state(all))))
+Query(x)     :     What is the population density of the largest state ?
 
 250
-Query(x)    :    What is the population density of the smallest state ?
-MR(z)       :    answer(density_1(smallest(state(all))))
+Query(x)     :     What is the population density of the smallest state ?
