@@ -1,4 +1,5 @@
 import sys
+#import prolog
 
 print
 print "Starting Program ..."
@@ -77,7 +78,7 @@ for i in n:
 	x=str(x)
 	z=q[1]
 	z=str(z)
-	data="\n%d\nQuery(x)    :    %s\nMR(z)       :    %s\n" % (i,x,z)
+	data="\n%d\nQuery(x)     :     %s\nMR(z)        :     %s\n" % (i,x,z)
 	f.write(data)
 
 f.close()
@@ -99,7 +100,9 @@ while(n[i]<251):
 	x=str(x)
 	z=q[1]
 	z=str(z)
-	data="\n%d\nQuery(x)    :    %s\nMR(z)       :    %s\n" % ((i+1),x,z)
+	#r=execute(z)
+	r="r%d" % (i+1)
+	data="\n%d\nQuery(x)     :     %s\nResult(r)    :     %s\n" % ((i+1),x,r)
 	f.write(data)
 	i=i+1
 	
@@ -122,9 +125,7 @@ while(n[i]<501):
 	q=geoQueryDB_list[n[i]]
 	x=q[0]
 	x=str(x)
-	z=q[1]
-	z=str(z)
-	data="\n%d\nQuery(x)    :    %s\nMR(z)       :    %s\n" % (j,x,z)
+	data="\n%d\nQuery(x)     :     %s\n" % (j,x)
 	f.write(data)
 	i=i+1
 	j=j+1
