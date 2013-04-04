@@ -132,6 +132,9 @@ while(n[i]<501):
 	
 f.close()
 
+del geoQueryDB_list
+del file
+
 print "\nExiting Program\n\n"
 
 	
