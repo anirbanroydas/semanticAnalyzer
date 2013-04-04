@@ -7,12 +7,6 @@ Created by nick on 2013-04-04.
 Copyright (c) 2013 __MyCompanyName__. All rights reserved.
 """
 
-import sys
-import os
-
-
-
-
 
 D = [  
  		"RiverName",
@@ -127,10 +121,11 @@ Lexicon["fewest"]  		 =  [ ]
 
 LC = []	
 
-# C = []
 
 
-def  compute_word_span(x):   #  computes word spans of sentence x
+
+
+def  compute_word_span(x):   #  computes word spans of sentence x and returns a list of (constituents, grammer_symbol) pairs
 	
 	x=x.strip()
 	depTree = dependency_Tree(x)
@@ -226,7 +221,6 @@ def  Feature2(x,c,s,d,t):		#	determines whether constituents c and d are assocti
 
 def  normalized_dist(x,node1,node2):		#	finds the normalized distance between two constituents in the dependency tree formed by the sentence x
 	
-	dt= dependency_Tree(x)
 	dist= calculate(dt,node1,node2)
 	if dist>0:
 		return 1
@@ -236,11 +230,12 @@ def  normalized_dist(x,node1,node2):		#	finds the normalized distance between tw
 
 def  calculate(root, node1, node2):
 	#
-	#	traverses the tree starting from the node root
+	#	traverses the dependency tree starting from root (root node of tree)
 	#	of the dependency tree and calculates
 	# 	the distance between node1 and node2 
-	# 	normalized by either node1 is a descendent or
-	#	an ancester of node2.
+	# 	normalized by either node1 is comes before or
+	#	after node2 and by looking at their grammer symbols
+	#	and considering their positions in the sentence x.
 	#
 	#	it returns the normalized distance
 	#
@@ -256,6 +251,81 @@ def  general_compos(elem1, elem2):			#	determines how elem1 and elem2 are asscia
 
 
 def  feature_Learner(norm_dist, gen_compos):
-	
+	#
+	#	decides whether Feature2(x,c,s,d,t) is (+ve) or
+	#	(-ve) abstractly by using W (Weight Vector) , i.e. 
+	#	W's y and z values and taking into account
+	#	norm_dist (i.e. the normalized distance between c and d in the dependency tree of x)
+	#   and gen_compos	(i.e. the general composition of s and t ,the elements of D)
+	#
+	#	It returns either 1 or 0 accordingly.
+	#
 
+
+
+def  F_w(x):		#	Function to return the y(associations of x and z) and z ( the logical form or the meaningful representation of x)
+
+	alpha={}
+	beta={}
+	y=[]
+	z=[]
+	depTree=dependency_Tree(x)
+	C=compute_word_span(x)
+	done_C=[]
+	done_D=[]
+	i=1
+	for c in C:
+		if c not in done_C:
+			for s in D:
+				if s not in done_D:
+					v=Feature1(x,c,s)
+					if v==1:
+						alpha[i]=(c,s)
+						i=i+1
+						done_C.append(c)
+						done_D.append(s)
+	C1=alpha.values()
+	i=1	
+	for cs in C1:
+		for dt in C1:
+			if cs!=dt:
+				v=Feature2(x,cs[0],cs[1],dt[0],dt[1])
+				if v==1:
+					beta[i]=(cs[1],dt[1])
+					if beta[i] not in LC:
+						LC.append(beta[i])
+					i=i+1
+	for k in alpha.keys():
+		c=alpha[k][0][0]
+		s=alpha[k][1]
+		y.append((c,s))
+	p=[]
+	D1=[]
+	for k in alpha.keys():
+		D1.append(alpha[k][1])
+	D1=set(D1)
+	for k in beta.keys():
+		p.append(beta[k][0])
+	p=set(p)
+	t=D1-p
+	t=list(t)
+	z=''
+	next=''
+	for k in beta.keys():
+		if t==beta[k][1]:
+			z=t
+			next=beta[k][0]
+			del beta[k]
+			break
+	while(1):
+		for k in beta.keys():
+			if next==beta[k][1]:
+				z=next+"("+z+")"
+				next=beta[k][0]
+				del beta[k]
+				break
+		if beta=={}:
+			break
+	
+	return y,z
 
