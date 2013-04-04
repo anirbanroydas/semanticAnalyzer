@@ -167,7 +167,7 @@ def  compute_word_grammer(depTree):
 def  find_Log_Comp():        #  finds the logical compostion of 
 	#
 	#  
-	#	Use W (Weight Vector) to create a new list
+	#	Use W (Weight Vector) to modify the list
 	#	called LC (logical compostion) everytime 
 	#	by adding pairs (s,t) where s and t are 
 	#	elements of D and s(t) , i.e. s is a function
@@ -177,10 +177,10 @@ def  find_Log_Comp():        #  finds the logical compostion of
 	#	This is can done by going throught W's (the weight vector's)
 	#	z values.
 	#
-	#   Builds LC
+	#   Modifies LC
 	#
 	#
-	return LC
+
 	
 	
 
@@ -211,19 +211,19 @@ def  Feature1(x,c,s):		#   determines whether constituent c of sentence x has a 
 
 
 
-def  Feature2(x,c,s,d,t):		#	determines whether constituents c and d are assoctiated with symbols or function s and t respectively and whether s(t) is valid or not.
+def  Feature2(x,c,s,d,t,dt):		#	determines whether constituents c and d are assoctiated with symbols or function s and t respectively and whether s(t) is valid or not.
 	""" Takes input x(sentence), c and d ( two (constituent, associated_grammerSymbol) pairs ), 
-	s and t ( two elements of D)
+	s and t ( two elements of D) and root node of dependency tree , dt
 	"""
-	norm_d= normalized_dist(x,c,d)
+	norm_d= normalized_dist(c,d,dt)
 	g= general_compos(s,t)
 	v= feature_Learner(norm_d, g)
     return v
 
 
-def  normalized_dist(x,node1,node2):		#	finds the normalized distance between two constituents in the dependency tree formed by the sentence x
+def  normalized_dist(node1,node2,depTree):		#	finds the normalized distance between two constituents in the dependency tree formed by the sentence x
 	
-	dist= calculate(dt,node1,node2)
+	dist= calculate(depTree,node1,node2)
 	if dist>0:
 		return 1
 	else:
@@ -291,7 +291,7 @@ def  F_w(x):		#	Function to return the y(associations of x and z) and z ( the lo
 	for cs in C1:
 		for dt in C1:
 			if cs!=dt:
-				v=Feature2(x,cs[0],cs[1],dt[0],dt[1])
+				v=Feature2(x,cs[0],cs[1],dt[0],dt[1],depTree)
 				if v==1:
 					beta[i]=(cs[1],dt[1])
 					if beta[i] not in LC:
@@ -329,7 +329,20 @@ def  F_w(x):		#	Function to return the y(associations of x and z) and z ( the lo
 		if beta=={}:
 			break
 	
-	return y,z
+	return arg_max(x,y,z)
+	
+
+
+def  arg_max(x,y,z):  		# 	Inference Problem solved by ILP (Integer Linear Programming)
+	#	
+	#	it takes as input the sentence x,
+	#	the assosciation y and the logical
+	#	form or the meaningful representation z.
+	#	
+	#	It returns a new (y,z) pair combining the 
+	#	feature function's (y,z) and weight vector W
+	#
+	return  (y,z)
 	
 	
 
