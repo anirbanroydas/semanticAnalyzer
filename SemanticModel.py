@@ -7,6 +7,8 @@ Created by nick on 2013-04-04.
 Copyright (c) 2013 __MyCompanyName__. All rights reserved.
 """
 
+from prolog import convert,execute
+
 
 D = [  
  		"RiverName",
@@ -328,4 +330,13 @@ def  F_w(x):		#	Function to return the y(associations of x and z) and z ( the lo
 			break
 	
 	return y,z
+	
+	
 
+def  Feedback(x,z):			#  returns feedback regarding whether  z is a valid and appropriated meaningful representation or logical form of sentence x
+	 z=convert(z)
+     result=execute(z)
+	 if result==response[x]:
+		return 1
+	else:
+		return 0
